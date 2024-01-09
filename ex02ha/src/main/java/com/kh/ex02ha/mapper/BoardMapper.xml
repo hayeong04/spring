@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.kh.ex02ha.mapper.BoardMapper">
+ <sql id="search">
+ 	<where>
+ 		<foreach collection="typeArr" item="type">
+ 		  <choose>
+ 		  	<when test="type == 'T'.toString()">
+ 		  		title like '%' || #{keyword} || '%'
+ 		  	</when>
+ 		  	<when test="type == 'C'toString()">
+ 		  		or content like '%' || #{keyword} || '%'
+ 		  	</when>
+ 		  	<when test="type == 'W'.toString()">
+ 		  		or writer like '%' || #{keyword} || '%'
+ 		  	</when>
+ 		  </choose>	
+ 		</foreach>
+ 	</where>
+ </sql>
+ <!-- 글갯수 -->
+ <select id="getTotal" resultType="int">
+ 	select count(*) from tbl_board
+ 	<include refid="search"></include>
+ </select>
+ 
+ 
+ <!-- 글목록 -->
+ <select id="select" resultType="com.kh.ex02ha.domain.BoardVO">
+ 	select * from (
+ 		select /*+index_desc(tbl_board pk_board) */
+ 		 	rownum rn, bno, title, writer ,regdate, updatedate
+ 		 from tbl_board
+ 		 <include refid="search"></include>
+ 		) 
+ 	where rn between #{startRow} and #{endRow}
+ </select>
+ 
+	<!-- 글 추가 -->
+ 	<insert id="insert">
+ 		<![CDATA[
+ 		insert into tbl_board
+ 			(bno, title, content, writer)
+ 		values 
+ 			(#{bno}, #{title}, #{content}, #{writer})
+ 		]]>
+ 	</insert>
+ 	
+ 	<select id="selectNextval" resultType="long"> <!-- 다음 글번호를 가져옴 -->
+ 		<![CDATA[
+ 		select seq_board.nextval from dual
+ 		]]>
+ 	</select>
+ 	
+ 	<!--  	<insert id="insertSelectKey"> 첨부파일할때 사용하게 됨. -->
+<!--  		<selectKey keyProperty="bno" resultType="long" order="BEFORE"> -->
+<!--  			select seq_board.nextval from dual -->
+<!--  		</selectKey> -->
+<!--  		insert into tbl_board -->
+<!--  			(bno, title, content, writer) -->
+<!--  		values  -->
+<!--  			(#{bno}, #{title}, #{content}, #{writer}) -->
+<!--  	</insert> -->
+ 	
+ 	
+ <!-- 글조회 -->
+ <select id="read" resultType="com.kh.ex02ha.domain.BoardVO">
+ 	select * from tbl_board
+ 	where bno = #{bno}
+ </select>
+ 
+ <!-- 글삭제 -->
+ <delete id="delete">
+ 	delete from tbl_board
+ 	where bno = #{bno} 
+ </delete>
+ 
+ <!-- 글수정 -->
+ <update id="update">
+ 	update tbl_board set
+ 		title = #{title},
+ 		content = #{content},
+ 		writer = #{writer},
+ 		updatedate = sysdate
+ 	where bno = #{bno}	
+ </update>
+ 	
+ </mapper>

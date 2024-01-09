@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>prevent.jsp</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script>
+$(function(){
+	$("a").click(function(e){
+		e.preventDefault(); // 브라우저의 기본 기능 막기
+		console.log("e:", e);
+		var v = $(this).text();
+		console.log(v);
+	});
+})
+</script>
+</head>
+<body>
+	<a href="http://www.naver.com">네이버</a>
+	<a href="http://www.daum.net">다음</a>
+</body>
+</html>

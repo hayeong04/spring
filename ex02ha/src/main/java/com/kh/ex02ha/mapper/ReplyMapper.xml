@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kh.ex02ha.mapper.ReplyMapper">
+
+	<insert id="insert">
+		insert into tbl_reply
+			(rno, bno, reply, replyer)
+		values
+			(seq_reply.nextval, #{bno}, #{reply}, #{replyer})	
+	</insert>
+	
+	<select id="selectByRno" resultType="com.kh.ex02ha.domain.replyVO">
+		select * from tbl_reply
+		where rno = #{rno}
+	</select>
+	
+	<update id="update">
+		update tbl_reply set
+			reply = #{reply},
+			replyer = #{replyer},
+			updatedate = sysdate
+		where rno = #{rno}
+		
+	</update>
+	
+	<delete id="delete">
+		delete from tbl_reply
+		where rno = #{rno}
+	</delete>
+	
+	<select id="selectList" resultType="com.kh.ex02ha.domain.replyVO">
+		select 
+			/*+ index_desc(tbl_reply pk_reply)*/
+			*
+			from tbl_reply
+		where bno = #{bno}	
+	</select>
+	
+	<select id="selectBnoByRno" resultType="long">
+		select bno
+		from tbl_reply
+		where rno = #{rno}
+	</select>
+</mapper>
