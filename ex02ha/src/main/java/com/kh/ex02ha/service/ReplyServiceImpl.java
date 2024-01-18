@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.kh.ex02ha.domain.ReplyVO;
+import com.kh.ex02ha.domain.hayeongDomain.ReplyVO;
 import com.kh.ex02ha.mapper.BoardMapper;
 import com.kh.ex02ha.mapper.ReplyMapper;
 

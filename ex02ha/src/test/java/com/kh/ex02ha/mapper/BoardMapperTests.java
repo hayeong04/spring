@@ -7,7 +7,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import com.kh.ex02ha.domain.BoardVO;
+import com.kh.ex02ha.domain.hayeongDomain.BoardVO;
 import com.kh.ex02ha.mapper.BoardMapperTests;
 
 

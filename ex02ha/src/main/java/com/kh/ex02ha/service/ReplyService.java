@@ -2,7 +2,7 @@ package com.kh.ex02ha.service;
 
 import java.util.List;
 
-import com.kh.ex02ha.domain.ReplyVO;
+import com.kh.ex02ha.domain.hayeongDomain.ReplyVO;
 
 public interface ReplyService {
 

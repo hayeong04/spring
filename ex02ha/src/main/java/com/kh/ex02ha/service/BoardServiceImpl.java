@@ -7,8 +7,8 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.kh.ex02ha.domain.BoardVO;
-import com.kh.ex02ha.domain.Criteria;
+import com.kh.ex02ha.domain.hayeongDomain.BoardVO;
+import com.kh.ex02ha.domain.hayeongDomain.Criteria;
 import com.kh.ex02ha.mapper.BoardMapper;
 
 import lombok.RequiredArgsConstructor;

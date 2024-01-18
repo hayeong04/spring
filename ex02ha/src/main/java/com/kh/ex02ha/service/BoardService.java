@@ -2,8 +2,8 @@ package com.kh.ex02ha.service;
 
 import java.util.Map;
 
-import com.kh.ex02ha.domain.BoardVO;
-import com.kh.ex02ha.domain.Criteria;
+import com.kh.ex02ha.domain.hayeongDomain.BoardVO;
+import com.kh.ex02ha.domain.hayeongDomain.Criteria;
 
 public interface BoardService {
 

@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.kh.ex02ha.domain.BoardVO;
-import com.kh.ex02ha.domain.Criteria;
+import com.kh.ex02ha.domain.hayeongDomain.BoardVO;
+import com.kh.ex02ha.domain.hayeongDomain.Criteria;
 
 public interface BoardMapper {
 

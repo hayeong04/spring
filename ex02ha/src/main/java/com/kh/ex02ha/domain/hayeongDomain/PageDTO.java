@@ -1,4 +1,4 @@
-package com.kh.ex02ha.domain;
+package com.kh.ex02ha.domain.hayeongDomain;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

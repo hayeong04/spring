@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.kh.ex02ha.domain.BoardVO;
-import com.kh.ex02ha.domain.Criteria;
-import com.kh.ex02ha.domain.PageDTO;
+import com.kh.ex02ha.domain.hayeongDomain.BoardVO;
+import com.kh.ex02ha.domain.hayeongDomain.Criteria;
+import com.kh.ex02ha.domain.hayeongDomain.PageDTO;
 import com.kh.ex02ha.service.BoardService;
 
 import lombok.extern.log4j.Log4j;
