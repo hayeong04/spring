@@ -1,4 +1,4 @@
-package com.kh.ex02ha.controller;
+package com.kh.ex02ha.controller.hayeongController;
 
 import java.util.List;
 import java.util.Map;
