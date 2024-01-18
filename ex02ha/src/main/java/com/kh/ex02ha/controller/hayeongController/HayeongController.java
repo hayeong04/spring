@@ -1,4 +1,4 @@
-package com.kh.ex02ha.controller;
+package com.kh.ex02ha.controller.hayeongController;
 
 public class HayeongController {
 		private int age;
